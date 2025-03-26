@@ -2,7 +2,7 @@ import json
 import streamlit as st
 
 DATA_FILE = "salas.json"
-SALAS = ["VM 1", "VM 2", "VM", "VM 4", "VM Antiga"]
+SALAS = ["VM 1", "VM 2", "VM3", "VM 4", "VM Antiga"]
 
 def carregar_dados():
     try:
@@ -23,7 +23,7 @@ def ocupar_vm(usuario, sala):
         dados[sala] = usuario
         salvar_dados(dados)
         atualizar_lista()
-        st.success(f"{usuario} ocupou a VM {sala}.")
+        st.success(f"{usuario} ocupou a {sala}.")
 
 def liberar_vm(sala):
     dados = carregar_dados()
@@ -31,9 +31,9 @@ def liberar_vm(sala):
         del dados[sala]
         salvar_dados(dados)
         atualizar_lista()
-        st.success(f"A VM {sala} foi liberada.")
+        st.success(f"A {sala} foi liberada.")
     else:
-        st.warning(f"A VM {sala} já está livre.")
+        st.warning(f"A {sala} já está livre.")
 
 def atualizar_lista():
     dados = carregar_dados()
