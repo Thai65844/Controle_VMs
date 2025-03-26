@@ -18,7 +18,7 @@ def salvar_dados(dados):
 def ocupar_vm(usuario, sala):
     dados = carregar_dados()
     if sala in dados:
-        st.error(f"A VM {sala} já está sendo usada por {dados[sala]}.")
+        st.error(f"A {sala} já está sendo usada por {dados[sala]}.")
     else:
         dados[sala] = usuario
         salvar_dados(dados)
